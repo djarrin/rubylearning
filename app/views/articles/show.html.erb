@@ -1,0 +1,14 @@
+<!--This is the view that displays the article title and text-->
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<%= link_to 'Edit', edit_article_path(@article) %>
+	|
+<%= link_to 'View All Articles', articles_path %>
