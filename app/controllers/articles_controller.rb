@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+	#will allow access to the David user to see the show and index page
+	http_basic_authenticate_with name: "David", password: "secret", except: [:index, :show]
+
 	#and index action to show all of the articles in the db, index actions (and there assiciated views) will be the first thing that shows up when you enter a particular directory. Note, when showing multiple records of a class the class must be plural
 	def index
 		@articles = Article.all

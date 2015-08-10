@@ -11,33 +11,13 @@
 
 <!--will add each of the comments (all of the comments associated with the article) below the article-->
 <h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
+<!--will render the partial file comments, it will iterate over each each of the comments-->
+<%= render @article.comments %>
 
 <h2>Add a comment:</h2>
-<!--form_for will create nested routes for the @article class-->
-<%= form_for([@article, @article.comments.build]) do |f| %>
-<p>
-	<%= f.label :commenter %><br />
-	<%= f.text_field :commenter %>
-</p>
-<p>
-	<%= f.label :body %>
-	<%= f.text_area :body %>
-</p>
-<p>
-	<%= f.submit %>
-</p>
-<% end %>
+<!--This render just places the file into this file apposed to itterating each comment for each article object-->
+<%= render 'comments/form' %>
+
 <%= link_to 'Edit', edit_article_path(@article) %>
 	|
 <%= link_to 'View All Articles', articles_path %>
