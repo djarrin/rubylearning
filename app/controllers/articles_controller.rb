@@ -48,6 +48,14 @@ class ArticlesController < ApplicationController
 	  end
 	end
 
+	#this action will "destroy" a record from the db
+	def destroy
+		@article = Article.find(params[:id])
+		@article.destroy
+
+		redirect_to articles_path
+	end
+
 	#this private method tells RoR what parameters are allowed to be submited
 	private
 		def article_params
